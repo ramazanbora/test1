@@ -19,61 +19,15 @@ Some work done here.
 {% for country in country_details %}
   {% assign country_iso = currency_iso | find: "name" , country.name %}
 
-
-
-
-  {% comment %}
-
-  {{ country_iso.name }} {{ country_iso.size }}
-  {{ country_iso }}
-
-
-
-
-  <table>
-    {% for row in country_iso.items %}
-      {% if forloop.first %}
-        <tr>
-          {% for pair in row%}
-            <th>{{ pair[0] }}</th>
-          {% endfor %}
-        </tr>
-      {% endif %}
-
-      {% tablerow pair in row %}
-        {{ pair[1] }}
-      {% endtablerow %}
-
-    {% endfor %}
-  </table>
-
-  {% endcomment %}
-
+<hr>
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
+
+    <h3> {{ country.name }} Historical Currencies </h3>
 
     <div id="{{ country.name }}">
       "Tables loading..."
     </div>
-
-    <h3> {{ country.name }} Historical Currencies </h3>
-
-      <table>
-        {% for row in country_iso.items %}
-          {% if forloop.first %}
-            <tr>
-              {% for pair in row%}
-                <th>{{ pair[0] }}</th>
-              {% endfor %}
-            </tr>
-          {% endif %}
-
-          {% tablerow pair in row %}
-            {{ pair[1] }}
-          {% endtablerow %}
-
-        {% endfor %}
-      </table>
 
 <hr>
 
@@ -179,6 +133,26 @@ Some work done here.
 
 
 {% comment %}
+
+
+<table>
+  {% for row in country_iso.items %}
+    {% if forloop.first %}
+      <tr>
+        {% for pair in row%}
+          <th>{{ pair[0] }}</th>
+        {% endfor %}
+      </tr>
+    {% endif %}
+
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+
+  {% endfor %}
+</table>
+
+
 
 ## ayrilin
 
