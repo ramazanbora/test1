@@ -1,7 +1,6 @@
 ---
-layout: page
-title: Search
-permalink: /real-incomes-2/
+title: "Real Incomes"
+layout: post
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -10,15 +9,20 @@ permalink: /real-incomes-2/
 {% assign country_details = site.data.country_details | group_by:"COUNTRY" %}
 {% assign currency_iso = site.data.currency_iso | group_by:"COUNTRY" %}
 
+Some work done here.
+
 
 ## cool tables
 
 {% for country in country_details %}
   {% assign country_iso = currency_iso | find: "name" , country.name %}
+
+  {% comment %}
+
   {{ country_iso.name }} {{ country_iso.size }}
   {{ country_iso }}
 
-  
+
 
 
   <table>
@@ -37,6 +41,8 @@ permalink: /real-incomes-2/
 
     {% endfor %}
   </table>
+
+  {% endcomment %}
 
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
