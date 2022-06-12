@@ -20,9 +20,7 @@ Some work done here.
   {% assign country_iso = currency_iso | find: "name" , country.name %}
 
 
-  <div id="{{ country.name }}">
-    hello
-  </div>
+
 
   {% comment %}
 
@@ -53,6 +51,10 @@ Some work done here.
 
   <details {% if forloop.first %} open {% endif %} >
     <summary>{{ country.name }}</summary>
+
+    <div id="{{ country.name }}">
+      "Tables loading..."
+    </div>
 
     <h3> {{ country.name }} Historical Currencies </h3>
 
