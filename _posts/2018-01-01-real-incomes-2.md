@@ -12,10 +12,17 @@ layout: post
 Some work done here.
 
 
+
+
 ## cool tables
 
 {% for country in country_details %}
   {% assign country_iso = currency_iso | find: "name" , country.name %}
+
+
+  <div id="{{ country.name }}">
+    hello
+  </div>
 
   {% comment %}
 
@@ -124,6 +131,48 @@ Some work done here.
 
 
   </details>
+{% endfor %}
+
+
+
+
+
+
+{% comment %}
+
+{% for country in currency_iso %}
+  <script>
+    createTable("{{ country.name }}");
+  </script>
+{% endfor %}
+
+{% endcomment %}
+
+
+
+{% for country in currency_iso %}
+  <script>
+    var input_text = `
+    <table>
+      {% for row in country.items %}
+        {% if forloop.first %}
+          <tr>
+            {% for pair in row%}
+              <th>{{ pair[0] }}</th>
+            {% endfor %}
+          </tr>
+        {% endif %}
+
+        {% tablerow pair in row %}
+          {{ pair[1] }}
+        {% endtablerow %}
+
+      {% endfor %}
+    </table>
+    `;
+
+    createTable2({{ country | jsonify }},input_text);
+  </script>
 {% endfor %}
 
 

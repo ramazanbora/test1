@@ -48,3 +48,26 @@ new Chart(chartName, {
   }
 });
 }
+
+
+function createTable(country) {
+  // document.getElementById(country).innerHTML = country;
+  // document.getElementById(country).innerHTML += country;
+  // {% assign currency_iso = site.data.currency_iso | group_by:"COUNTRY" %}
+
+  //{% for country_iso in currency_iso %}
+  //  document.getElementById(country).innerHTML += {{ country_iso.name }};
+  //{% endfor %}
+}
+
+
+function createTable2(country,input_text) {
+  // document.getElementById(country.name).innerHTML += "table 2";
+  // document.getElementById(country.name).innerHTML += country.name;
+  document.getElementById(country.name).innerHTML = input_text;
+  // {% assign currency_iso = site.data.currency_iso | group_by:"COUNTRY" %}
+
+  //{% for country_iso in currency_iso %}
+  //  document.getElementById(country).innerHTML += {{ country_iso.name }};
+  //{% endfor %}
+}
